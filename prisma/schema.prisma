@@ -16,17 +16,17 @@ enum Role {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
   email       String   @unique
-  name        String?  @db.VarChar(255)
+  name        String?  @unique @db.VarChar(255)
   password    String
   role        Role     @default(USER)
   sections    Section[]
 }
 
 model Section {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
   name        String   @unique
   path        String   @unique
@@ -35,12 +35,12 @@ model Section {
 }
 
 model Post {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   published   Boolean  @default(false)
   title       String   @db.VarChar(255)
   description String?  @db.VarChar(255)
   section     Section  @relation(fields: [sectionId], references: [id])
-  sectionId   Int
+  sectionId   String
 }
