@@ -3,12 +3,18 @@ import {Metadata} from 'next';
 import {Providers} from './providers';
 import clsx from 'clsx';
 import {NavBar} from '@/components/NavBar';
+import {getNavigationItems} from '@/lib/navigation';
 
 export const metadata: Metadata = {
   //do something
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const navigationItems = await getNavigationItems();
   return (
     <html lang="en">
       <head />
@@ -16,7 +22,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         className={clsx('min-h-screen bg-background font-sans antialiased')}
       >
         <Providers themeProps={{attribute: 'class', defaultTheme: 'dark'}}>
-          <NavBar />
+          <NavBar navigationItems={navigationItems} />
           <div className="container mx-auto max-w-7xl py-16 px-6 flex-grow h-screen">
             <main className="max-w-xl3 h-full">{children}</main>
           </div>
