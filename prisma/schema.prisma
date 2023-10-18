@@ -44,3 +44,18 @@ model Post {
   section     Section  @relation(fields: [sectionId], references: [id])
   sectionId   String
 }
+
+enum NavigationType {
+  SECTION
+  GROUP
+  STATIC
+}
+
+model Navigation {
+  id          String           @id @default(uuid())
+  createdAt   DateTime         @default(now())
+  type        NavigationType
+  order       Int
+  title       String           @db.VarChar(255)
+  path        String           @unique
+}
