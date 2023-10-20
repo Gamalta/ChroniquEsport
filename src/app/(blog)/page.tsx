@@ -1,4 +1,4 @@
-import {Button} from '@nextui-org/button';
+import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 
 export default async function Home() {
@@ -220,8 +220,8 @@ export default async function Home() {
       recusandae veritatis voluptatum repellendus explicabo consequuntur dolore
       aut, fugit fugiat qui. Dolorem ratione doloremque, ipsum non beatae, vitae
       optio numquam vero, fuga iusto a quidem voluptates dolorum.
-      <Button href="api/auth/signin" as={Link}>
-        signin
+      <Button asChild>
+        <Link href="api/auth/signin">signin</Link>
       </Button>
     </>
   );

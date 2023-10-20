@@ -22,8 +22,8 @@ export default async function RootLayout({
         className={clsx('min-h-screen bg-background font-sans antialiased')}
       >
         <Providers themeProps={{attribute: 'class', defaultTheme: 'dark'}}>
-          <NavBar navigationItems={navigationItems} />
-          <div className="container mx-auto max-w-7xl py-16 px-6 flex-grow h-screen">
+          <div className="relative flex min-h-screen flex-col">
+            <NavBar navigationItems={navigationItems} />
             <main className="max-w-xl3 h-full">{children}</main>
           </div>
         </Providers>

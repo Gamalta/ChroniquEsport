@@ -1,5 +1,6 @@
-import sha256 from 'crypto-js/sha256';
+import {type ClassValue, clsx} from 'clsx';
+import {twMerge} from 'tailwind-merge';
 
-export const hashPassword = (password: string) => {
-  return sha256(password).toString();
-};
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

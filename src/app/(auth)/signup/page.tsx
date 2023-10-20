@@ -1,6 +1,6 @@
 'use client';
+import {Button} from '@/components/ui/button';
 import {Signup} from '@/lib/user';
-import {Button} from '@nextui-org/button';
 
 export default function SignupPage() {
   return (
